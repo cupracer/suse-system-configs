@@ -1,7 +1,7 @@
 sshd_config:
   ListenAddress: 0.0.0.0
   Port: 22
-  PermitRootLogin: true
+  PermitRootLogin: false
   AuthorizedKeysFile: .ssh/authorized_keys
   PasswordAuthentication: false
   ChallengeResponseAuthentication: false
