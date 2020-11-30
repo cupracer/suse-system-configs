@@ -17,13 +17,13 @@
         <priority config:type="integer">99</priority>
         <product_dir>/</product_dir>
       </listentry>
-			<listentry>
-				<alias>repo-oss</alias>
-				<media_url><![CDATA[http://download.opensuse.org/distribution/leap/15.2/repo/oss/]]></media_url>
-				<name>OSS Repository</name>
-				<priority config:type="integer">99</priority>
-				<product_dir>/</product_dir>
-			</listentry>
+      <listentry>
+        <alias>repo-oss</alias>
+        <media_url><![CDATA[http://download.opensuse.org/distribution/leap/15.2/repo/oss/]]></media_url>
+        <name>OSS Repository</name>
+        <priority config:type="integer">99</priority>
+        <product_dir>/</product_dir>
+      </listentry>
       <listentry>
         <alias>repo-non-oss</alias>
         <media_url><![CDATA[http://download.opensuse.org/distribution/leap/15.2/repo/non-oss/]]></media_url>
@@ -67,7 +67,7 @@
       <timeout config:type="integer">2</timeout>
       <trusted_grub>false</trusted_grub>
       <xen_kernel_append>vga=gfx-1024x768x16</xen_kernel_append>
-			<serial>serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1</serial>
+      <serial>serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1</serial>
     </global>
     <loader_type>grub2</loader_type>
   </bootloader>
@@ -75,8 +75,8 @@
     <image_installation config:type="boolean">true</image_installation>
   </deploy_image>
   <kdump>
-		<add_crash_kernel config:type="boolean">true</add_crash_kernel>
-	</kdump>
+    <add_crash_kernel config:type="boolean">true</add_crash_kernel>
+  </kdump>
   <firewall>
     <default_zone>public</default_zone>
     <enable_firewall config:type="boolean">true</enable_firewall>
@@ -87,7 +87,7 @@
     <ask-list config:type="list"/>
     <mode>
       <confirm config:type="boolean">false</confirm>
-			<final_reboot config:type="boolean">true</final_reboot>
+      <final_reboot config:type="boolean">true</final_reboot>
     </mode>
     <proposals config:type="list"/>
     <signature-handling/>
@@ -280,21 +280,21 @@
     <install_recommended config:type="boolean">true</install_recommended>
     <instsource/>
     <packages config:type="list">
-		  <package>autoyast2</package>
-		  <package>bind-utils</package>
+      <package>autoyast2</package>
+      <package>bind-utils</package>
       <package>command-not-found</package>
       <package>git-core</package>
       <package>iputils</package>
       <package>open-vm-tools</package>
       <package>python3-GitPython</package>
       <package>python3-pygit2</package>
-			<package>salt-minion</package>
+      <package>salt-minion</package>
       <package>sudo</package>
       <package>supportutils</package>
       <package>sysstat</package>
       <package>vim</package>
       <package>w3m</package>
-      <package>wget</package> 
+      <package>wget</package>
     </packages>
     <patterns config:type="list">
       <pattern>base</pattern>
@@ -332,17 +332,16 @@
       <uid>0</uid>
       <user_password>linux</user_password>
       <username>root</username>
-			<authorized_keys config:type="list">
-				<listentry>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/rai8FoKyyxsnURl8k2rYmSBb9qngEWbEKUwZWP/0Z5LmkRw24ticMgOM38PF3cdqND8JRSMkGAK1VfxEsMpVTzzAcuEVqqwf0WIMtG6dZ4PIhFDywo3blSg4Cs4bJBhN05K1xiKwslwyvBQE2ymsERhabbjalWb+5nL4sIZ//sM0t5mniNsJHnGxJ4wDGk/d3SutA0babO3e1Qn7R9DFwfSK13c6J/3IvRYVY/IZ1XE2iOhHy+rsfLinTnfJZbKXlYELCVWINB7qzuCZHnE9bEq6Nq1rBKcFZgl1klUYMwxmTJ2IKufaXvtlaGSe00p17Em3g2LaiCSGfOZ6Pw4z thomas@sickboy</listentry>
-			</authorized_keys>
+      <authorized_keys config:type="list">
+        <listentry>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/rai8FoKyyxsnURl8k2rYmSBb9qngEWbEKUwZWP/0Z5LmkRw24ticMgOM38PF3cdqND8JRSMkGAK1VfxEsMpVTzzAcuEVqqwf0WIMtG6dZ4PIhFDywo3blSg4Cs4bJBhN05K1xiKwslwyvBQE2ymsERhabbjalWb+5nL4sIZ//sM0t5mniNsJHnGxJ4wDGk/d3SutA0babO3e1Qn7R9DFwfSK13c6J/3IvRYVY/IZ1XE2iOhHy+rsfLinTnfJZbKXlYELCVWINB7qzuCZHnE9bEq6Nq1rBKcFZgl1klUYMwxmTJ2IKufaXvtlaGSe00p17Em3g2LaiCSGfOZ6Pw4z thomas@sickboy</listentry>
+      </authorized_keys>
     </user>
   </users>
   <scripts>
     <pre-scripts config:type="list">
-			<script>
-				<interpreter>shell</interpreter>
-				<source>
-<![CDATA[
+      <script>
+        <interpreter>shell</interpreter>
+        <source><![CDATA[
 #!/bin/bash
 
 cat /sys/block/sda/queue/scheduler
@@ -361,45 +360,40 @@ EOF
 sleep 1
 cat /sys/block/sda/queue/scheduler
 cat /sys/block/vda/queue/scheduler
-]]>
-				</source>
-				<feedback config:type="boolean">true</feedback>
-				<feedback_type>message</feedback_type>
-			</script>
-		</pre-scripts>
-		<post-scripts config:type="list">
-			<script>
-				<interpreter>shell</interpreter>
-				<source>
-<![CDATA[
+]]></source>
+        <feedback config:type="boolean">true</feedback>
+        <feedback_type>message</feedback_type>
+      </script>
+    </pre-scripts>
+    <post-scripts config:type="list">
+      <script>
+        <interpreter>shell</interpreter>
+        <source><![CDATA[
 #!/bin/bash
 
 git clone https://github.com/cupracer/suse-system-configs.git /opt/suse-system-configs
-]]>
-        </source>
+salt-call --local state.apply
+]]></source>
         <feedback config:type="boolean">true</feedback>
         <feedback_type>message</feedback_type>
-			</script>
-		</post-scripts>
-	</scripts>
-	<files config:type="list">
-		<file>
-			<file_path>/etc/udev/rules.d/99-virtual-disk-scheduler.rules</file_path>
-			<file_contents>
-<![CDATA[
+      </script>
+    </post-scripts>
+  </scripts>
+  <files config:type="list">
+    <file>
+      <file_path>/etc/udev/rules.d/99-virtual-disk-scheduler.rules</file_path>
+      <file_contents><![CDATA[
 ACTION!="add", GOTO="virtual_disk_scheduler_end"
 SUBSYSTEM!="block", GOTO="virtual_disk_scheduler_end"
 
 KERNEL=="[sv]d*[!0-9]", ATTR{queue/scheduler}="none"
 
 LABEL="virtual_disk_scheduler_end"
-]]>
-			</file_contents>
-		</file>
-		<file>
-			<file_path>/etc/salt/minion</file_path>
-			<file_contents>
-<![CDATA[
+]]></file_contents>
+    </file>
+    <file>
+      <file_path>/etc/salt/minion</file_path>
+      <file_contents><![CDATA[
 file_client: local
 file_roots:
   base:
@@ -409,12 +403,11 @@ pillar_roots:
     - /opt/suse-system-configs/saltstack/pillar
 gitfs_remotes:
   - https://github.com/saltstack-formulas/openssh-formula.git
+  - https://github.com/saltstack-formulas/fail2ban-formula.git
 fileserver_backend:
   - roots
   - gitfs
-]]>
-			</file_contents>
-		</file>
-	</files>
+]]></file_contents>
+    </file>
+  </files>
 </profile>
-
