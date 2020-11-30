@@ -6,6 +6,6 @@ fail2ban:
     sshd:
       enabled: true
       bantime: 7d
-      findtime: 10m
+      findtime: 1h
       maxretry: 5
 
