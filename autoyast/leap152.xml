@@ -280,11 +280,14 @@
     <install_recommended config:type="boolean">true</install_recommended>
     <instsource/>
     <packages config:type="list">
+		  <package>autoyast2</package>
 		  <package>bind-utils</package>
       <package>command-not-found</package>
       <package>git-core</package>
       <package>iputils</package>
       <package>open-vm-tools</package>
+      <package>python3-GitPython</package>
+      <package>python3-pygit2</package>
 			<package>salt-minion</package>
       <package>sudo</package>
       <package>supportutils</package>
@@ -364,6 +367,20 @@ cat /sys/block/vda/queue/scheduler
 				<feedback_type>message</feedback_type>
 			</script>
 		</pre-scripts>
+		<post-scripts config:type="list">
+			<script>
+				<interpreter>shell</interpreter>
+				<source>
+<![CDATA[
+#!/bin/bash
+
+git clone git@github.com:cupracer/suse-system-configs.git /opt/suse-system-configs
+]]>
+        </source>
+        <feedback config:type="boolean">true</feedback>
+        <feedback_type>message</feedback_type>
+			</script>
+		</post-scripts>
 	</scripts>
 	<files config:type="list">
 		<file>
@@ -376,6 +393,25 @@ SUBSYSTEM!="block", GOTO="virtual_disk_scheduler_end"
 KERNEL=="[sv]d*[!0-9]", ATTR{queue/scheduler}="none"
 
 LABEL="virtual_disk_scheduler_end"
+]]>
+			</file_contents>
+		</file>
+		<file>
+			<file_path>/etc/salt/minion</file_path>
+			<file_contents>
+<![CDATA[
+file_client: local
+file_roots:
+  base:
+    - /opt/suse-system-configs/saltstack/salt
+pillar_roots:
+  base:
+    - /opt/suse-system-configs/saltstack/pillar
+gitfs_remotes:
+  - https://github.com/saltstack-formulas/openssh-formula.git
+fileserver_backend:
+  - roots
+  - gitfs
 ]]>
 			</file_contents>
 		</file>
