@@ -277,7 +277,7 @@
   </services-manager>
   <software>
     <image/>
-    <install_recommended config:type="boolean">true</install_recommended>
+    <install_recommended config:type="boolean">false</install_recommended>
     <instsource/>
     <packages config:type="list">
       <package>autoyast2</package>
@@ -330,7 +330,7 @@
       </password_settings>
       <shell>/bin/bash</shell>
       <uid>0</uid>
-      <user_password>linux</user_password>
+      <user_password>!</user_password>
       <username>root</username>
       <authorized_keys config:type="list">
         <listentry>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/rai8FoKyyxsnURl8k2rYmSBb9qngEWbEKUwZWP/0Z5LmkRw24ticMgOM38PF3cdqND8JRSMkGAK1VfxEsMpVTzzAcuEVqqwf0WIMtG6dZ4PIhFDywo3blSg4Cs4bJBhN05K1xiKwslwyvBQE2ymsERhabbjalWb+5nL4sIZ//sM0t5mniNsJHnGxJ4wDGk/d3SutA0babO3e1Qn7R9DFwfSK13c6J/3IvRYVY/IZ1XE2iOhHy+rsfLinTnfJZbKXlYELCVWINB7qzuCZHnE9bEq6Nq1rBKcFZgl1klUYMwxmTJ2IKufaXvtlaGSe00p17Em3g2LaiCSGfOZ6Pw4z thomas@sickboy</listentry>
@@ -365,7 +365,7 @@ cat /sys/block/vda/queue/scheduler
         <feedback_type>message</feedback_type>
       </script>
     </pre-scripts>
-    <post-scripts config:type="list">
+    <init-scripts config:type="list">
       <script>
         <interpreter>shell</interpreter>
         <source><![CDATA[
@@ -377,7 +377,7 @@ salt-call --local state.apply
         <feedback config:type="boolean">true</feedback>
         <feedback_type>message</feedback_type>
       </script>
-    </post-scripts>
+    </init-scripts>
   </scripts>
   <files config:type="list">
     <file>
