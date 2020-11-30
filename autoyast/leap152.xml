@@ -280,6 +280,7 @@
     <install_recommended config:type="boolean">false</install_recommended>
     <instsource/>
     <packages config:type="list">
+      <package>aaa_base-extras</package>
       <package>autoyast2</package>
       <package>bind-utils</package>
       <package>command-not-found</package>
@@ -315,7 +316,7 @@
   <users config:type="list">
     <user>
       <authorized_keys config:type="list"/>
-      <encrypted config:type="boolean">false</encrypted>
+      <encrypted config:type="boolean">true</encrypted>
       <fullname>root</fullname>
       <gid>0</gid>
       <home>/root</home>
@@ -404,6 +405,7 @@ pillar_roots:
 gitfs_remotes:
   - https://github.com/saltstack-formulas/openssh-formula.git
   - https://github.com/saltstack-formulas/fail2ban-formula.git
+  - https://github.com/saltstack-formulas/users-formula.git
 fileserver_backend:
   - roots
   - gitfs
