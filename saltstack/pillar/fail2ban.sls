@@ -1,4 +1,7 @@
 fail2ban:
+  config:
+    logtarget: SYSLOG
+
   jails:
     sshd:
       enabled: true
