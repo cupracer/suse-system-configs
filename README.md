@@ -18,6 +18,7 @@ pillar_roots:
     - /opt/suse-system-configs/saltstack/pillar
 gitfs_remotes:
   - https://github.com/saltstack-formulas/openssh-formula.git
+  - https://github.com/saltstack-formulas/fail2ban-formula.git
 fileserver_backend:
   - roots
   - gitfs
