@@ -1,4 +1,10 @@
 users:
+  root:
+    user_dir_mode: 0700
+    gitconfig:
+      user.name: Thomas Schulte
+      user.email: thomas@cupracer.de
+
   thomas:
     user_dir_mode: 0700
     sudoonly: false
