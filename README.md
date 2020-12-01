@@ -20,6 +20,7 @@ gitfs_remotes:
   - https://github.com/saltstack-formulas/openssh-formula.git
   - https://github.com/saltstack-formulas/fail2ban-formula.git
   - https://github.com/saltstack-formulas/users-formula.git
+  - https://github.com/saltstack-formulas/firewalld-formula.git
 fileserver_backend:
   - roots
   - gitfs
