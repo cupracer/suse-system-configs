@@ -1,7 +1,9 @@
 base:
   '*':
+    - users.user_files
     - openssh
     - openssh.config
+    - firewalld
     - fail2ban
-    - users.user_files
+#    - docker
 

@@ -1,5 +1,7 @@
 base:
   '*':
-    - openssh
-    - fail2ban
     - users
+    - openssh
+    - firewalld
+    - fail2ban
+
