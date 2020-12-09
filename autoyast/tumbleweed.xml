@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<!DOCTYPE profile>
+<profile xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
+  <add-on>
+    <add_on_others config:type="list">
+      <listentry>
+        <alias>repo-debug</alias>
+        <media_url><![CDATA[http://download.opensuse.org/tumbleweed/repo/debug/]]></media_url>
+        <name>Debug-Repository</name>
+        <priority config:type="integer">99</priority>
+        <product_dir>/</product_dir>
+      </listentry>
+      <listentry>
+        <alias>repo-oss</alias>
+        <media_url><![CDATA[http://download.opensuse.org/tumbleweed/repo/oss/]]></media_url>
+        <name>OSS Repository</name>
+        <priority config:type="integer">99</priority>
+        <product_dir>/</product_dir>
+      </listentry>
+      <listentry>
+        <alias>repo-non-oss</alias>
+        <media_url><![CDATA[http://download.opensuse.org/tumbleweed/repo/non-oss/]]></media_url>
+        <name>Non-OSS Repository</name>
+        <priority config:type="integer">99</priority>
+        <product_dir>/</product_dir>
+      </listentry>
+      <listentry>
+        <alias>repo-src-oss</alias>
+        <media_url><![CDATA[http://download.opensuse.org/tumbleweed/repo/src-oss/]]></media_url>
+        <name>Quell-Repository</name>
+        <priority config:type="integer">99</priority>
+        <product_dir>/</product_dir>
+      </listentry>
+      <listentry>
+        <alias>repo-src-non-oss</alias>
+        <media_url><![CDATA[http://download.opensuse.org/tumbleweed/repo/src-non-oss/]]></media_url>
+        <name>Quell-Repository non-oss</name>
+        <priority config:type="integer">99</priority>
+        <product_dir>/</product_dir>
+      </listentry>
+    </add_on_others>
+    <add_on_products config:type="list"/>
+  </add-on>
+  <bootloader>
+    <global>
+      <append>splash=silent noresume mitigations=auto elevator=noop console=tty1 console=ttyS0,115200 quiet</append>
+      <cpu_mitigations>auto</cpu_mitigations>
+      <gfxmode>auto</gfxmode>
+      <hiddenmenu>false</hiddenmenu>
+      <os_prober>true</os_prober>
+      <secure_boot>true</secure_boot>
+      <terminal>console serial</terminal>
+      <timeout config:type="integer">2</timeout>
+      <trusted_grub>false</trusted_grub>
+      <xen_kernel_append>vga=gfx-1024x768x16</xen_kernel_append>
+      <serial>serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1</serial>
+    </global>
+    <loader_type>grub2</loader_type>
+  </bootloader>
+  <deploy_image>
+    <image_installation config:type="boolean">true</image_installation>
+  </deploy_image>
+  <kdump>
+    <add_crash_kernel config:type="boolean">true</add_crash_kernel>
+  </kdump>
+  <firewall>
+    <default_zone>public</default_zone>
+    <enable_firewall config:type="boolean">true</enable_firewall>
+    <log_denied_packets>off</log_denied_packets>
+    <start_firewall config:type="boolean">true</start_firewall>
+  </firewall>
+  <general>
+    <ask-list config:type="list"/>
+    <mode>
+      <confirm config:type="boolean">false</confirm>
+      <final_reboot config:type="boolean">true</final_reboot>
+    </mode>
+    <proposals config:type="list"/>
+    <signature-handling/>
+    <storage/>
+  </general>
+  <keyboard>
+    <keymap>german</keymap>
+  </keyboard>
+  <language>
+    <language>de_DE</language>
+    <languages/>
+  </language>
+  <login_settings/>
+  <networking>
+    <dhcp_options>
+      <dhclient_client_id/>
+      <dhclient_hostname_option>AUTO</dhclient_hostname_option>
+    </dhcp_options>
+    <dns>
+      <dhcp_hostname config:type="boolean">true</dhcp_hostname>
+      <resolv_conf_policy>auto</resolv_conf_policy>
+    </dns>
+    <interfaces config:type="list">
+      <interface>
+        <bootproto>dhcp</bootproto>
+        <dhclient_set_hostname>yes</dhclient_set_hostname>
+        <name>eth0</name>
+        <startmode>auto</startmode>
+      </interface>
+    </interfaces>
+    <ipv6 config:type="boolean">true</ipv6>
+    <keep_install_network config:type="boolean">true</keep_install_network>
+    <managed config:type="boolean">false</managed>
+    <routing>
+      <ipv4_forward config:type="boolean">false</ipv4_forward>
+      <ipv6_forward config:type="boolean">false</ipv6_forward>
+    </routing>
+  </networking>
+  <ntp-client>
+    <ntp_policy><![CDATA[auto]]></ntp_policy>
+    <ntp_servers config:type="list">
+      <ntp_server>
+        <address>0.opensuse.pool.ntp.org</address>
+        <iburst config:type="boolean">true</iburst>
+        <offline config:type="boolean">false</offline>
+      </ntp_server>
+      <ntp_server>
+        <address>1.opensuse.pool.ntp.org</address>
+        <iburst config:type="boolean">true</iburst>
+        <offline config:type="boolean">false</offline>
+      </ntp_server>
+      <ntp_server>
+        <address>2.opensuse.pool.ntp.org</address>
+        <iburst config:type="boolean">true</iburst>
+        <offline config:type="boolean">false</offline>
+      </ntp_server>
+      <ntp_server>
+        <address>3.opensuse.pool.ntp.org</address>
+        <iburst config:type="boolean">true</iburst>
+        <offline config:type="boolean">false</offline>
+      </ntp_server>
+    </ntp_servers>
+    <ntp_sync>systemd</ntp_sync>
+  </ntp-client>
+  <partitioning config:type="list">
+    <drive>
+      <device>/dev/system</device>
+      <enable_snapshots config:type="boolean">true</enable_snapshots>
+      <initialize config:type="boolean">true</initialize>
+      <partitions config:type="list">
+        <partition>
+          <create config:type="boolean">true</create>
+          <filesystem config:type="symbol">swap</filesystem>
+          <format config:type="boolean">true</format>
+          <lv_name>swap</lv_name>
+          <mount>swap</mount>
+          <mountby config:type="symbol">device</mountby>
+          <pool config:type="boolean">false</pool>
+          <resize config:type="boolean">false</resize>
+          <size>auto</size>
+          <stripes config:type="integer">1</stripes>
+          <stripesize config:type="integer">0</stripesize>
+        </partition>
+        <partition>
+          <create config:type="boolean">true</create>
+          <create_subvolumes config:type="boolean">true</create_subvolumes>
+          <filesystem config:type="symbol">btrfs</filesystem>
+          <format config:type="boolean">true</format>
+          <lv_name>root</lv_name>
+          <mount>/</mount>
+          <mountby config:type="symbol">device</mountby>
+          <pool config:type="boolean">false</pool>
+          <resize config:type="boolean">false</resize>
+          <size>15G</size>
+          <stripes config:type="integer">1</stripes>
+          <stripesize config:type="integer">0</stripesize>
+          <subvolumes_prefix><![CDATA[@]]></subvolumes_prefix>
+        </partition>
+      </partitions>
+      <pesize>4M</pesize>
+      <type config:type="symbol">CT_LVM</type>
+    </drive>
+    <drive>
+      <device>/dev/sda</device>
+      <disklabel>gpt</disklabel>
+      <initialize config:type="boolean">true</initialize>
+      <partitions config:type="list">
+        <partition>
+          <create config:type="boolean">true</create>
+          <format config:type="boolean">false</format>
+          <partition_id config:type="integer">263</partition_id>
+          <partition_nr config:type="integer">1</partition_nr>
+          <resize config:type="boolean">false</resize>
+          <size>8M</size>
+        </partition>
+        <partition>
+          <create config:type="boolean">true</create>
+          <format config:type="boolean">false</format>
+          <lvm_group>system</lvm_group>
+          <partition_id config:type="integer">142</partition_id>
+          <partition_nr config:type="integer">2</partition_nr>
+          <resize config:type="boolean">false</resize>
+          <size>max</size>
+        </partition>
+        <partition>
+          <create config:type="boolean">true</create>
+          <format config:type="boolean">false</format>
+          <partition_id config:type="integer">263</partition_id>
+          <partition_nr config:type="integer">14</partition_nr>
+          <resize config:type="boolean">false</resize>
+          <size>1M</size>
+        </partition>
+        <partition>
+          <create config:type="boolean">true</create>
+          <filesystem config:type="symbol">vfat</filesystem>
+          <format config:type="boolean">true</format>
+          <partition_id config:type="integer">259</partition_id>
+          <partition_nr config:type="integer">15</partition_nr>
+          <resize config:type="boolean">false</resize>
+          <size>64M</size>
+        </partition>
+      </partitions>
+      <type config:type="symbol">CT_DISK</type>
+      <use>all</use>
+    </drive>
+  </partitioning>
+  <proxy>
+    <enabled config:type="boolean">false</enabled>
+    <ftp_proxy/>
+    <http_proxy/>
+    <https_proxy/>
+    <no_proxy>localhost,127.0.0.1</no_proxy>
+    <proxy_password/>
+    <proxy_user/>
+  </proxy>
+  <report>
+    <errors>
+      <log config:type="boolean">true</log>
+      <show config:type="boolean">true</show>
+      <timeout config:type="integer">0</timeout>
+    </errors>
+    <messages>
+      <log config:type="boolean">true</log>
+      <show config:type="boolean">true</show>
+      <timeout config:type="integer">5</timeout>
+    </messages>
+    <warnings>
+      <log config:type="boolean">true</log>
+      <show config:type="boolean">true</show>
+      <timeout config:type="integer">10</timeout>
+    </warnings>
+    <yesno_messages>
+      <log config:type="boolean">true</log>
+      <show config:type="boolean">true</show>
+      <timeout config:type="integer">0</timeout>
+    </yesno_messages>
+  </report>
+  <services-manager>
+    <default_target>multi-user</default_target>
+    <services>
+      <disable config:type="list"/>
+      <enable config:type="list">
+        <service>sshd</service>
+        <service>sysstat</service>
+      </enable>
+    </services>
+  </services-manager>
+  <software>
+    <image/>
+    <install_recommended config:type="boolean">false</install_recommended>
+    <instsource/>
+    <packages config:type="list">
+      <package>aaa_base-extras</package>
+      <package>autoyast2</package>
+      <package>bind-utils</package>
+      <package>command-not-found</package>
+      <package>git-core</package>
+      <package>iputils</package>
+      <package>open-vm-tools</package>
+      <package>python3-GitPython</package>
+      <package>python3-pygit2</package>
+      <package>salt-minion</package>
+      <package>sudo</package>
+      <package>supportutils</package>
+      <package>sysstat</package>
+      <package>vim</package>
+      <package>w3m</package>
+      <package>wget</package>
+    </packages>
+    <patterns config:type="list">
+      <pattern>base</pattern>
+      <pattern>yast2_basis</pattern>
+    </patterns>
+    <products config:type="list">
+      <product>openSUSE</product>
+    </products>
+  </software>
+  <ssh_import>
+    <copy_config config:type="boolean">false</copy_config>
+    <import config:type="boolean">false</import>
+  </ssh_import>
+  <timezone>
+    <hwclock>UTC</hwclock>
+    <timezone>Europe/Berlin</timezone>
+  </timezone>
+  <users config:type="list">
+    <user>
+      <authorized_keys config:type="list"/>
+      <encrypted config:type="boolean">true</encrypted>
+      <fullname>root</fullname>
+      <gid>0</gid>
+      <home>/root</home>
+      <home_btrfs_subvolume config:type="boolean">false</home_btrfs_subvolume>
+      <password_settings>
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/bin/bash</shell>
+      <uid>0</uid>
+      <user_password>!</user_password>
+      <username>root</username>
+      <authorized_keys config:type="list">
+        <listentry>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/rai8FoKyyxsnURl8k2rYmSBb9qngEWbEKUwZWP/0Z5LmkRw24ticMgOM38PF3cdqND8JRSMkGAK1VfxEsMpVTzzAcuEVqqwf0WIMtG6dZ4PIhFDywo3blSg4Cs4bJBhN05K1xiKwslwyvBQE2ymsERhabbjalWb+5nL4sIZ//sM0t5mniNsJHnGxJ4wDGk/d3SutA0babO3e1Qn7R9DFwfSK13c6J/3IvRYVY/IZ1XE2iOhHy+rsfLinTnfJZbKXlYELCVWINB7qzuCZHnE9bEq6Nq1rBKcFZgl1klUYMwxmTJ2IKufaXvtlaGSe00p17Em3g2LaiCSGfOZ6Pw4z thomas@sickboy</listentry>
+      </authorized_keys>
+    </user>
+  </users>
+  <scripts>
+    <pre-scripts config:type="list">
+      <script>
+        <interpreter>shell</interpreter>
+        <source><![CDATA[
+#!/bin/bash
+
+cat /sys/block/sda/queue/scheduler
+cat /sys/block/vda/queue/scheduler
+
+cat << EOF > /etc/udev/rules.d/99-virtual-disk-scheduler.rules
+ACTION!="add", GOTO="virtual_disk_scheduler_end"
+SUBSYSTEM!="block", GOTO="virtual_disk_scheduler_end"
+KERNEL=="[sv]d*[!0-9]", ATTR{queue/scheduler}="none"
+LABEL="virtual_disk_scheduler_end"
+EOF
+
+/sbin/udevadm control -R
+/sbin/udevadm trigger -v -c add -s block --name-match=/dev/sda
+/sbin/udevadm trigger -v -c add -s block --name-match=/dev/vda
+sleep 1
+cat /sys/block/sda/queue/scheduler
+cat /sys/block/vda/queue/scheduler
+]]></source>
+        <feedback config:type="boolean">true</feedback>
+        <feedback_type>message</feedback_type>
+      </script>
+    </pre-scripts>
+    <init-scripts config:type="list">
+      <script>
+        <interpreter>shell</interpreter>
+        <source><![CDATA[
+#!/bin/bash
+
+git clone https://github.com/cupracer/suse-system-configs.git /opt/suse-system-configs
+salt-call --local state.apply
+]]></source>
+        <feedback config:type="boolean">true</feedback>
+        <feedback_type>message</feedback_type>
+      </script>
+    </init-scripts>
+  </scripts>
+  <files config:type="list">
+    <file>
+      <file_path>/etc/udev/rules.d/99-virtual-disk-scheduler.rules</file_path>
+      <file_contents><![CDATA[
+ACTION!="add", GOTO="virtual_disk_scheduler_end"
+SUBSYSTEM!="block", GOTO="virtual_disk_scheduler_end"
+
+KERNEL=="[sv]d*[!0-9]", ATTR{queue/scheduler}="none"
+
+LABEL="virtual_disk_scheduler_end"
+]]></file_contents>
+    </file>
+    <file>
+      <file_path>/etc/salt/minion</file_path>
+      <file_contents><![CDATA[
+file_client: local
+file_roots:
+  base:
+    - /opt/suse-system-configs/saltstack/salt
+pillar_roots:
+  base:
+    - /opt/suse-system-configs/saltstack/pillar
+gitfs_remotes:
+  - https://github.com/saltstack-formulas/openssh-formula.git
+  - https://github.com/saltstack-formulas/fail2ban-formula.git
+  - https://github.com/saltstack-formulas/users-formula.git
+  - https://github.com/saltstack-formulas/firewalld-formula.git
+fileserver_backend:
+  - roots
+  - gitfs
+]]></file_contents>
+    </file>
+  </files>
+</profile>
